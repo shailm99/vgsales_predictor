@@ -1,0 +1,183 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Sep 25 15:25:58 2020
+
+@author: shailmirpuri
+"""
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Game Sales Predictor</title>
+</head>
+
+<body>
+
+    <div style="color:white">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2>Video Game Sales Predictor</h2>
+            <h3>Year</h3>
+            <input id="first" name="Year" type="number ">
+            <h3>North America Sales As a percentage of Total</h3><br><input id="second" name="NA_sales" required="required">
+            <h3>Europe Sales As a percentage of Total</h3><br><input id="third" name="EU_Sales" required="required">
+            <h3>Japan Sales As a percentage of Total</h3><br><input id="fourth" name="JP_Sales" required="required">
+            <h3>Others Sales As a percentage of Total</h3><br><input id="fifth" name="OR_Sales" required="required">
+            <h3>What Series?</h3><br><select name="Series" id="series" required="required">
+                <option value="Fifa">Fifa</option>
+                <option value="NBA">NBA</option>
+                <option value="Mario">Mario</option>
+                <option value="Call of Duty">Call of Duty</option>
+                <option value="Grand Theft Auto">Grand Theft Auto</option>
+                <option value="Pokemon">Pokemon</option>
+                <option value="Halo">Halo</option>
+                <option value="Wii">Wii</option>
+                <option value="None">None of the above</option>
+            </select>
+            <h3>Genre?</h3><br><select name="Genre" id="Gen" required="required">
+                <option value="Sports">Sports</option>
+                <option value="Platform">Platform</option>
+                <option value="Racing">Racing</option>
+                <option value="Role-Playing">Role-Playing</option>
+                <option value="Puzzle">Puzzle</option>
+                <option value="Misc">Misc</option>
+                <option value="Shooter">Shooter</option>
+                <option value="Simulation">Simulation</option>
+                <option value="Action">Action</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Strategy">Strategy</option>
+            </select>
+            <h3>Device type</h3><br><select name="Device" id="dev" required="required">
+                <option value="Console">Console</option>
+                <option value="Portable">Portable</option>
+                <option value="PC">PC</option>
+            </select>
+            <br><br><button id="sub" type="submit ">Calculate Sales</button>
+            <br>
+
+
+
+
+        </form>
+
+
+
+        <br><br><h3>{{ prediction_text }}<h3>
+    </div>
+
+
+
+
+    <style>
+        body {
+            background-color: gray;
+            text-align: center;
+            padding: 0px;
+        }
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #Gen {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #Gen:hover {
+            background-color: coral;
+        }
+        
+        #series {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #series:hover {
+            background-color: coral;
+        }
+        
+        #dev {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #dev:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 50px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: coral;
+        }
+        
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+         #fifth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</body>
+
+</html>
