@@ -128,3 +128,5 @@ wurlitzer @ file:///opt/concourse/worker/volumes/live/01a17f3d-eafe-4806-57a1-4b
 xgboost==1.2.0
 yapf @ file:///tmp/build/80754af9/yapf_1593528177422/work
 zipp==3.1.0
+requests==2.24.0
+
