@@ -14,8 +14,8 @@ import pandas as pd
 import sklearn
 import category_encoders as ce
 app = Flask(__name__)
-filename = 'vrmodel.pkl'
-f=open(filename, 'rb')
+file_name = 'xgboost_model.pkl'
+f=open(file_name, 'rb')
 model = pickle.load(f)
 @app.route('/',methods=['GET'])
 def Home():
@@ -129,9 +129,13 @@ def predict():
         a=np.array([[Year,FIFA,Mario,Call_of_Duty,Grand_Theft_Auto,Pokemon,
                                    Halo,Wii,NBA,NA_Sales,EU_Sales,JP_Sales,OR_Sales,G,D]])
         np.reshape(a,(1,-1))
-        prediction=model.predict(a)
-        output=round(prediction[0],2)
-        return render_template('index.html',prediction_text="The Global Sales Predicted for this game is {} million".format(output))
+        pred=model.predict(a)
+        output=float(pred[0])
+        output=round(output,2)
+        if output>0:
+            return render_template('index.html',prediction_text="The Global Sales Predicted for this game is {} million".format(output))
+        else: 
+            return render_template('index.html',prediction_text="This game won't be bought")
     else:
         return render_template('index.html')
 
